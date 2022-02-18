@@ -26,6 +26,8 @@ public class Main {
             K_71200660.getSaldo();
             System.out.print("Saldo I_71200660 Rp.");
             I_71200660.getSaldo();
+        }else{
+            System.out.println("Inputan tidak valid.");
         }
     }
 }
