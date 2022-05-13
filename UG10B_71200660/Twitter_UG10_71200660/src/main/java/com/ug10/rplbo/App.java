@@ -60,6 +60,8 @@ public class App {
                     throw new UsernameException(1);
                 }else if(newUsername.length()<6){
                     throw new UsernameException(2);
+                }else if(!UsernameCheck(newUsername)){
+                    throw new UsernameException(3);
                 }
             }catch (UsernameException err){
                 System.out.println("ERROR : "+err.getMessage());
