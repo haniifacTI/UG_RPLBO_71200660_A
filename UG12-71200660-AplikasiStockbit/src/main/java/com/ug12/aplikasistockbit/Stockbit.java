@@ -35,6 +35,7 @@ public class Stockbit {
     public void printPortfolio(){
         HashMap<Saham, Integer> porto = this.investor.getPortfolio();
 
+        System.out.println("============== PORTO CLIENT ==============");
         System.out.println("Client : "+ this.investor.getNama());
         System.out.println("No. Kode Saham \t Jumlah Lot   Harga \t Sub Total ");
 
@@ -57,8 +58,11 @@ public class Stockbit {
     public void orderJual(Saham saham, int lot){
         HashMap<Saham, Integer> porto = this.investor.getPortfolio();
         if(porto.containsKey(saham)){
-            if(porto.get(saham) >= lot){
+            if(porto.get(saham) > lot){
                 porto.put(saham,porto.get(saham)-lot);
+                System.out.println("Order jual " + saham.getKode() + " sebanyak " + lot + " sukses!");
+            }else if(porto.get(saham) == lot){
+                porto.remove(saham);
                 System.out.println("Order jual " + saham.getKode() + " sebanyak " + lot + " sukses!");
             }else{
                 System.out.println("Order jual gagal!");
